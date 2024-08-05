@@ -20,7 +20,7 @@ class City extends Model
         'alias',
     ];
 
-    protected $casts = [ 
+    protected $casts = [
         'alias' => 'array',
     ];
 
@@ -29,7 +29,7 @@ class City extends Model
      */
     public function scopeByAlias(Builder $query, string $alias): void
     {
-        $query->where("alias", '@>', '[' . json_encode($alias) . ']');
+        $query->where('alias', '@>', '['.json_encode($alias).']');
     }
 
     public function scopeSearch(Builder $query, string $filter): void
@@ -53,6 +53,5 @@ class City extends Model
             $query = $query->where('country', $city_country);
         }
 
-        $query;
     }
 }
