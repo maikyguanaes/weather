@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Cache;
 
 class GetPlaylistByCityController extends Controller
 {
-
     public function __invoke(string $city, Request $request)
     {
         $city_instance = City::search($city)->first();
@@ -40,7 +39,7 @@ class GetPlaylistByCityController extends Controller
         $client_geocoding = new ClientGeocoding();
         $params_geocoding = $client_geocoding->buildQueryParams($city);
         $response_geocoding = $client_geocoding->fetch($params_geocoding);
-        
+
         return $client_geocoding->persist($response_geocoding->json());
     }
 
@@ -53,18 +52,18 @@ class GetPlaylistByCityController extends Controller
 
         $cache_key = implode('::', $params);
 
-        $weather = Cache::remember($cache_key, 3600, function () use ($params){
+        $weather = Cache::remember($cache_key, 3600, function () use ($params) {
             $client_current_weather = new ClientCurrentWeather();
             $params_current_weather = $client_current_weather->buildQueryParams($params);
             $response_current_weather = $client_current_weather->fetch($params_current_weather);
-            
+
             return $response_current_weather->json();
         });
 
         return $weather;
     }
 
-    private function getPlaylistByTemperature(mixed $temperature) : array
+    private function getPlaylistByTemperature(mixed $temperature): array
     {
         $category = match (true) {
             $temperature < 10 => MusicCategoryEnum::CLASSIC->value,
@@ -90,6 +89,7 @@ class GetPlaylistByCityController extends Controller
             ],
 
         ];
+
         return $playlists[$category];
     }
 }

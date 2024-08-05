@@ -13,7 +13,8 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
-        "laravel/pint": "^1.13",
+        "friendsofphp/php-cs-fixer": "^3.61",
+        "laravel/pint": "^1.17",
         "laravel/sail": "^1.26",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.0",
@@ -61,7 +62,12 @@
         ],
         "test:retry" : [
             "@php ./vendor/bin/pest --retry"
-        ]
+        ],
+        "pint-check": "pint -v --test --preset psr12",
+        "pint-fix": "pint -v --preset psr12",
+        "pint-dirty": "pint --dirty",
+        "phpcs-fixer-check": "php-cs-fixer fix --config=.php-cs-fixer.php -v --dry-run --using-cache=no -- app",
+        "phpcs-fixer-fix": "php-cs-fixer fix --config=.php-cs-fixer.php -v --using-cache=no -- app"
     },
     "extra": {
         "laravel": {

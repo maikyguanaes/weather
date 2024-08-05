@@ -4,32 +4,29 @@ namespace App\Services\OpenWeatherMap;
 
 use App\Models\City;
 use Illuminate\Support\Arr;
-use Illuminate\Http\Client\Response;
-use Illuminate\Support\Facades\Http;
-use App\Services\OpenWeatherMap\AbstractClient;
 
 class ClientGeocoding extends AbstractClient
 {
-
     public function getPath(): string
     {
         return '/geo/1.0/direct';
     }
 
-    public function buildQueryParams(mixed  $params): array 
+    public function buildQueryParams(mixed $params): array
     {
         $query_params = [
             'appid' => $this->getApiKey(),
             'q' => $params,
             'limit' => 1,
         ];
+
         return $query_params;
     }
 
-    public function persist(mixed  $params): ?City 
+    public function persist(mixed $params): ?City
     {
         $payload = head($params);
-        if (!(bool) $payload) {
+        if (! (bool) $payload) {
             return null;
         }
 
@@ -42,7 +39,7 @@ class ClientGeocoding extends AbstractClient
 
         $alias = Arr::get($payload, 'local_names');
 
-        if (!is_null($alias)) {
+        if (! is_null($alias)) {
             $content['alias'] = Arr::flatten($alias);
         }
 

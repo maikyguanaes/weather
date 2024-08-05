@@ -53,4 +53,3 @@ it('ClientCurrentWeather->fetch() returns 401 error', function () {
     expect($response)->toBeInstanceOf(Response::class);
     expect($response->status())->toBe(StatusCode::HTTP_UNAUTHORIZED);
 });
-        
