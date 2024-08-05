@@ -23,15 +23,4 @@ class ClientGeocoding extends AbstractClient
         ];
         return $query_params;
     }
-
-    public function getUrl(): string {
-        return $this->getApiUrl() . $this->getPath();
-    }
-
-    public function fetch(array $params): Response
-    {
-        $response = Http::get($this->getUrl(), $params);
-
-        return $response;
-    }
 }

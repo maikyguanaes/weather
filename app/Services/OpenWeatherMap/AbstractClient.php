@@ -2,6 +2,7 @@
 
 namespace App\Services\OpenWeatherMap;
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\Response;
 use App\Services\OpenWeatherMap\ClientInterface;
 
@@ -27,8 +28,17 @@ abstract class AbstractClient implements ClientInterface
         return $this->api_key;
     }
 
+    public function getUrl(): string {
+        return $this->getApiUrl() . $this->getPath();
+    }
+
+    public function fetch(array $params): Response
+    {
+        $response = Http::get($this->getUrl(), $params);
+
+        return $response;
+    }
+
     abstract public function getPath(): string;
     abstract public function buildQueryParams(string $params): array;
-    abstract public function getUrl(): string;
-    abstract public function fetch(array $params): Response;
 }
