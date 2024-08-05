@@ -18,12 +18,12 @@ it('ClientCurrentWeather->buildQueryParams() returns query params', function () 
     # given
     $client = new ClientCurrentWeather();
     $params = [
-        'latiture' => -23.5506507,
+        'latitude' => -23.5506507,
         'longitude' => -46.6333824,
     ];
     $query_params = [
         'appid' => 'openweathermap-api-key',
-        'lat' => $params['latiture'],
+        'lat' => $params['latitude'],
         'lon' => $params['longitude'],
         'units' => 'metric',
     ];
