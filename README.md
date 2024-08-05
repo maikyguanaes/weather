@@ -14,7 +14,7 @@ docker run --rm \
     -u "$(id -u):$(id -g)" \
     -v "$(pwd):/var/www/html" \
     -w /var/www/html \
-    laravelsail/php82-composer:latest \
+    laravelsail/php83-composer:latest \
     composer install --ignore-platform-reqs
 ```
 ### Alias
@@ -42,12 +42,12 @@ sail php artisan migrate
 
 To run tests you can run:
 ```bash
-sail composer run test
+sail composer run tests
 ```
-
+```bash
+sail composer tests:coverage
+````
 To check code base style you can run:
 ```bash
-sail composer run pint-check
-
-sail composer run pint-fix
+sail composer run pint-check && sail composer run pint-fix
 ```

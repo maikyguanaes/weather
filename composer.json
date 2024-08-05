@@ -48,21 +48,12 @@
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
         ],
-        "test" : [
-            "@php ./vendor/bin/pest"
-        ],
-        "test:compact" : [
-            "@php ./vendor/bin/pest --compact"
-        ],
-        "test:bail" : [
-            "@php ./vendor/bin/pest --bail"
-        ],
-        "test:dirty" : [
-            "@php ./vendor/bin/pest --dirty"
-        ],
-        "test:retry" : [
-            "@php ./vendor/bin/pest --retry"
-        ],
+        "tests" : "@php ./vendor/bin/pest",
+        "tests:compact" :"@php ./vendor/bin/pest --compact",
+        "tests:bail" : "@php ./vendor/bin/pest --bail",
+        "tests:dirty" : "@php ./vendor/bin/pest --dirty",
+        "tests:retry" :"@php ./vendor/bin/pest --retry",
+        "tests:coverage" : "@php ./vendor/bin/pest --coverage",
         "pint-check": "pint -v --test --preset psr12",
         "pint-fix": "pint -v --preset psr12",
         "pint-dirty": "pint --dirty",
