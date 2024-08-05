@@ -4,7 +4,6 @@ namespace App\Services\OpenWeatherMap;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\Response;
-use App\Services\OpenWeatherMap\ClientInterface;
 
 abstract class AbstractClient implements ClientInterface
 {
@@ -18,7 +17,7 @@ abstract class AbstractClient implements ClientInterface
         $this->api_key = env('OPEN_WEATHER_MAP_API_KEY');
     }
 
-    public function getApiUrl(): string 
+    public function getApiUrl(): string
     {
         return $this->api_url;
     }
@@ -28,8 +27,9 @@ abstract class AbstractClient implements ClientInterface
         return $this->api_key;
     }
 
-    public function getUrl(): string {
-        return $this->getApiUrl() . $this->getPath();
+    public function getUrl(): string
+    {
+        return $this->getApiUrl().$this->getPath();
     }
 
     public function fetch(array $params): Response
@@ -40,5 +40,5 @@ abstract class AbstractClient implements ClientInterface
     }
 
     abstract public function getPath(): string;
-    abstract public function buildQueryParams(mixed  $params): array;
+    abstract public function buildQueryParams(mixed $params): array;
 }

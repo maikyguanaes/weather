@@ -7,43 +7,43 @@ use Illuminate\Http\Client\Response;
 interface ClientInterface
 {
     /**
-     * getApiKey
+     * getApiKey.
      *
-     * @return string 
+     * @return string
      */
     public function getApiKey(): string;
 
     /**
-     * getApiUrl
+     * getApiUrl.
      *
-     * @return string 
+     * @return string
      */
     public function getApiUrl(): string;
 
     /**
-     * getPath
+     * getPath.
      *
      * @return string gets path of service in OpenWeatherMap
      */
     public function getPath(): string;
 
     /**
-     * getUrl
+     * getUrl.
      *
      * @return string
      */
     public function getUrl(): string;
 
     /**
-     * buildQueryParams
+     * buildQueryParams.
      *
-     * @param mixed 
+     * @param mixed
      * @return array
      */
-    public function buildQueryParams(mixed  $params): array;
+    public function buildQueryParams(mixed $params): array;
 
     /**
-     * fetch
+     * fetch.
      *
      * @param array
      */
