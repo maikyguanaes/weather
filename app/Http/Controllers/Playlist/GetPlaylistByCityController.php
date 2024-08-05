@@ -12,6 +12,33 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 
+ /**
+     * @OA\Get(
+     *      path="/playlist-by-city/{city}",
+     *      operationId="getPlaylistByCity",
+     *      tags={"Playlist"},
+     *      summary="Get playlist by city name",
+     *      description="Returns playlist data",
+     *      @OA\Parameter(
+     *          name="city",
+     *          description="city",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/PlaylistResource")
+     *       ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="City not found"
+     *      ),
+     * )
+     */
 class GetPlaylistByCityController extends Controller
 {
     public function __invoke(string $city, Request $request)

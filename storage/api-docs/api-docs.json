@@ -1,0 +1,98 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "OpenApiDocumentation",
+        "description": "OpenApi description",
+        "contact": {
+            "email": "conato@maiky.dev"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/api/v1",
+            "description": "Doc API Server"
+        }
+    ],
+    "paths": {
+        "/api/v1": {},
+        "/playlist-by-city/{city}": {
+            "get": {
+                "tags": [
+                    "Playlist"
+                ],
+                "summary": "Get playlist by city name",
+                "description": "Returns playlist data",
+                "operationId": "getPlaylistByCity",
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "description": "city",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PlaylistResource"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "City not found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "PlaylistResource": {
+                "title": "PlaylistResource",
+                "description": "Playlist Resource",
+                "properties": {
+                    "playlist": {
+                        "title": "playlist",
+                        "description": "url of spotify music",
+                        "type": "string",
+                        "example": "https://open.spotify.com/playlist/any"
+                    },
+                    "category": {
+                        "title": "category",
+                        "description": "category of music",
+                        "type": "string",
+                        "example": "'pop', 'classic', 'rock'"
+                    },
+                    "temperature": {
+                        "title": "temperature",
+                        "description": "temperature of city",
+                        "type": "integer",
+                        "example": "23"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "PlaylistResource"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Playlist",
+            "description": "Playlist"
+        }
+    ]
+}
