@@ -12,7 +12,7 @@ it('ClientGeocoding->fetch() returns data successfully as SP/SP/BR', function ()
     $client = new ClientGeocoding();
 
     # when
-    $payload_response = file_get_contents(base_path('tests/fixtures/open_weather_map/open-weather-map-sp-sp-br.json'));
+    $payload_response = file_get_contents(base_path('tests/fixtures/open_weather_map/geocoding-sp-sp-br.json'));
     $query_params = [
         'appid' => 'openweathermap-api-key',
         'q' => 'São Paulo,São Paulo,BR',
@@ -35,7 +35,7 @@ it('ClientGeocoding->fetch() returns data successfully as SP/BA/BR', function ()
     $client = new ClientGeocoding();
 
     # when
-    $payload_response = file_get_contents(base_path('tests/fixtures/open_weather_map/open-weather-map-sp-ba-br.json'));
+    $payload_response = file_get_contents(base_path('tests/fixtures/open_weather_map/geocoding-sp-ba-br.json'));
     $query_params = [
         'appid' => 'openweathermap-api-key',
         'q' => 'São Paulo,Bahia,BR',
@@ -58,7 +58,7 @@ it('ClientGeocoding->fetch() returns 401 error', function () {
     $client = new ClientGeocoding();
 
     # when
-    $payload_response = file_get_contents(base_path('tests/fixtures/open_weather_map/open-weather-map-sp-ba-br.json'));
+    $payload_response = file_get_contents(base_path('tests/fixtures/open_weather_map/geocoding-sp-ba-br.json'));
     $query_params = [
         'appid' => 'openweathermap-api-key',
         'q' => 'São Paulo,Bahia,BR',

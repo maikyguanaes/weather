@@ -37,10 +37,10 @@ interface ClientInterface
     /**
      * buildQueryParams
      *
-     * @param string
+     * @param mixed 
      * @return array
      */
-    public function buildQueryParams(string $params): array;
+    public function buildQueryParams(mixed  $params): array;
 
     /**
      * fetch

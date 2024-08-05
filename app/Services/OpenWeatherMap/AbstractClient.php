@@ -40,5 +40,5 @@ abstract class AbstractClient implements ClientInterface
     }
 
     abstract public function getPath(): string;
-    abstract public function buildQueryParams(string $params): array;
+    abstract public function buildQueryParams(mixed  $params): array;
 }

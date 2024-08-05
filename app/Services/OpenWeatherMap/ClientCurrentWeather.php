@@ -6,20 +6,21 @@ use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use App\Services\OpenWeatherMap\AbstractClient;
 
-class ClientGeocoding extends AbstractClient
+class ClientCurrentWeather extends AbstractClient
 {
 
     public function getPath(): string
     {
-        return '/geo/1.0/direct';
+        return '/data/2.5/weather';
     }
 
-    public function buildQueryParams(mixed  $params): array 
+    public function buildQueryParams(mixed $params): array 
     {
         $query_params = [
             'appid' => $this->getApiKey(),
-            'q' => $params,
-            'limit' => 1,
+            'lat' => $params['latiture'],
+            'lon' => $params['longitude'],
+            'units' => 'metric',
         ];
         return $query_params;
     }
