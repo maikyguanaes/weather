@@ -51,3 +51,13 @@ To check code base style you can run:
 ```bash
 sail composer run pint-check && sail composer run pint-fix
 ```
+
+We have a Swagger UI to make a shot.
+```bash
+localhost/docs
+```
+
+We can use theses pattern to inform city: localhost/api/v1/playlist-by-city/{city}
+- `São Paulo`
+- `São Paulo,Minas Gerais`
+- `São Paulo,Minas Gerais,BR`
