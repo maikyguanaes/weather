@@ -18,7 +18,7 @@ class ClientCurrentWeather extends AbstractClient
     {
         $query_params = [
             'appid' => $this->getApiKey(),
-            'lat' => $params['latiture'],
+            'lat' => $params['latitude'],
             'lon' => $params['longitude'],
             'units' => 'metric',
         ];
