@@ -1,16 +1,8 @@
 <?php
 
-namespace Tests\Unit;
+uses()->group('example');
 
-use PHPUnit\Framework\TestCase;
+it('true is true', function () {
 
-class ExampleTest extends TestCase
-{
-    /**
-     * A basic test example.
-     */
-    public function test_that_true_is_true(): void
-    {
-        $this->assertTrue(true);
-    }
-}
+    expect(true)->toBeTruthy();
+});
